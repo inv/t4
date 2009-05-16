@@ -10,6 +10,9 @@ module NavigationHelpers
     
     when /the homepage/
       '/'
+    when /the new user_tweets page/
+      new_user_tweets_path
+
     
     # Add more mappings here.
     # Here is a more fancy example:

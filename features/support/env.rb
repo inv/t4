@@ -15,3 +15,6 @@ end
 
 require 'cucumber/rails/rspec'
 require 'webrat/core/matchers'
+
+require File.expand_path(File.dirname(__FILE__) + '/../../spec/blueprints')
+
