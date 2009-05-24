@@ -14,8 +14,8 @@ Rails::Initializer.run do |config|
   config.gem 'rubyist-aasm', :lib => 'aasm'
   config.gem 'mislav-will_paginate', :lib => 'will_paginate', :source => 'http://gems.github.com', :version => '~> 2.2.3'
   config.gem 'cucumber', :version => '>= 0.3.7'
-  #config.gem 'rspec', :version => '>= 1.2.6'
-  #config.gem 'rspec-rails', :version => '>= 1.2.6'
+  config.gem 'rspec-rails', :version => '>= 1.2.6', :lib => 'spec/rails'
+  config.gem 'rspec', :version => '>= 1.2.6', :lib => 'spec'
   config.gem 'webrat'
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration should go into files in config/initializers

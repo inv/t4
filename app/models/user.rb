@@ -1,3 +1,5 @@
+require 'lib/my_twitter'
+
 class User < TwitterAuth::GenericUser
   # Extend and define your user model as you see fit.
   # All of the authentication logic is handled by the 
@@ -5,8 +7,17 @@ class User < TwitterAuth::GenericUser
   has_many :statuses
 
   def update_tweets
-    @response = token.get "http://twitter.com/statuses/user_timeline.json?screen_name=#{self.login}"
-    @response.body
+    @twitter = MyTwitter.new self.token
+    status_infos = @twitter.get_timeline_for self.login
+    Status.from_json_array status_infos
+  end
+
+  def self.make_or_find_from_json user_info
+    if user = User.find_or_create_by_twitter_id(user_info['id'].to_s)
+      user.login = user_info['screen_name']
+      user.assign_twitter_attributes(user_info)
+    end
+    user
   end
 
 end
