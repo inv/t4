@@ -1,18 +1,13 @@
 Given /^there is a twitter user called '(.*?)'$/ do |login|
-  @user = User.make
+  @user = User.make :login => login
 end
 
 Given /^he has tweets$/ do
   5.times do |i|
-    Status.make {:user => @user}
+    Status.make :user => @user
   end
 end
 
-
-Given /^I click on 'jcfischer'$/ do
-  pending
-end
-
 Then /^I should see a list of tweets$/ do
-  pending
+  response.should have_tag "ul#tweets li"  
 end
