@@ -4,20 +4,7 @@ describe User do
 
   describe "update_tweets" do
 
-    before(:each) do
-      @user = User.new
-      twitter = 
-      @user.stub!(:token => token)
-    end
 
-    it "should return true" do
-      @user.update_tweets.should == true
-    end
-
-    it "should call the twitter api" do
-      @user.token.should_receive(:get).once
-      @user.update_tweets
-    end
   end
 
   describe "make_or_find_from_json" do

@@ -11,3 +11,4 @@ end
 Then /^I should see a list of tweets$/ do
   response.should have_tag "ul#tweets li"  
 end
+
